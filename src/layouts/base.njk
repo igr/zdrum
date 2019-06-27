@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>zdrum.work</title>
+	<link href="/favicon.ico" rel="icon">
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content="zdrum.work">
+	<meta property="og:description" content="ZDRUM.work">
+	<meta property="og:url" content="{{ site.baseURL }}">
+	<meta property="og:site_name" content="ZDRUM">
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="{{ site.baseURL }}/zdrum-og.png" />
+
+    <link rel='stylesheet' href='{{ site.assets.css.dir }}/main.css' type='text/css' media='all' />
+</head>
+<body>
+	<main>
+    {% block main %}{% endblock %}
+	</main>
+{% block script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "zdrum",
+  "version": "1.0.0",
+  "description": "zdrum",
+  "scripts": {
+    "clean": "gulp clean",
+    "dev": "gulp dev",
+    "serve": "gulp build && gulp serve",
+    "build": "gulp build"
+  },
+  "author": {
+    "name": "Igor Spasić",
+    "email": "igor.spasic@gmail.com",
+    "url": "https://igo.rs/"
+  },
+  "license": "MIT",
+  "homepage": "https://zdrum.work",
+  "dependencies": {
+    "spig": "file:./spig"
+  }
+}
