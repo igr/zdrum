@@ -51,8 +51,6 @@ img {
 
 
 a {
-  display: block;
-  padding: 1em 1.2em;
   color: $color-text;
   text-decoration: none;
   &.hov, &:hover {
@@ -69,8 +67,4 @@ a {
     -moz-user-select: none;
 }
 
-a.selected {
-  background-color: $color-text-hover;
-  color: $color-selected-text;
-}
-
+@import "nav";
