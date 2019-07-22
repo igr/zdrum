@@ -7,9 +7,7 @@ body {
     position: absolute;
     top: 50px;
     right: 50px;
-
     z-index: 1;
-
     -webkit-user-select: none;
     user-select: none;
     input {
@@ -54,10 +52,10 @@ body {
         transform-origin: 0% 100%;
     }
 
- /**
-  * Transform all the slices of hamburger
-  * into a crossmark.
-  */
+    /**
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
     input:checked ~ span {
         opacity: 1;
         transform: rotate(45deg) translate(-2px, -1px);
@@ -76,18 +74,16 @@ body {
 #menu {
     position: absolute;
     width: 300px;
+    right: -360px;
+    top: 0;
     margin: -100px 0 0 0;
-    padding: 125px 50px 50px 20px;
-    right: -100px;
+    padding: 150px 0 50px 0;
     text-align: center;
-
     background: #fff;
     list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
 
     transform-origin: 0 0;
-    transform: translate(100%, 0);
+    transform: translateX(0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
@@ -95,11 +91,14 @@ body {
     padding: 4px 0;
     font-size: 2rem;
     font-family: $font2;
+    a {
+        margin-right: 4px;
+    }
     img {
         width: 64px;
     }
 }
-#menuToggle input:checked ~ ul {
-    transform: scale(1.0, 1.0);
+#menuToggle input:checked ~ #menu {
+    transform: translateX(-300px);
     opacity: 1;
 }
