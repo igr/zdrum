@@ -1,9 +1,11 @@
 body {
-  overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
- }
+    overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+}
 
+nav {
+}
 #menuToggle {
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 50px;
     z-index: 1;
@@ -80,10 +82,10 @@ body {
     text-align: center;
     background: #fff;
     list-style-type: none;
+    z-index: 0;
     transform-origin: 0 0;
     transform: translateX(0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-    overflow-x: hidden;
 }
 
 #menu li {
