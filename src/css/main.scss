@@ -9,7 +9,7 @@ $color-background: #ff8ba8;
 $color-text: #000;
 $color-sel: #ffd203;
 $color-selected-text: #fff;
-$color-text-hover: #ff0000;
+$color-text-hover: #ff8ba8;
 
 html, body {
   background-color: $color-background;
@@ -37,6 +37,7 @@ h2 {
   margin: 0;
   font-family: $font2;
   font-size: 12vw;
+  margin-bottom: 1em;
 }
 h3 {
   font-family: $font2;
@@ -54,8 +55,10 @@ img {
 a {
   color: $color-text;
   text-decoration: none;
+  padding: 10px 10px 0;
   &.hov, &:hover {
     color: $color-text-hover;
+    background-color: #fff;
   }
 }
 
@@ -66,6 +69,10 @@ a {
     -webkit-touch-callout: none;
     -o-user-select: none;
     -moz-user-select: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 @import "nav";
