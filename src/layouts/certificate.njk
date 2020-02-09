@@ -14,22 +14,20 @@
 </div>
 <div id="certificate" style="display: none">
 
-<div style="padding: 0;
+<div id="cert" style="padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: center; width:100%; height: 100%; position: fixed; font-size: 3vw">
+  justify-content: center; width:100%; height: 100%; position: fixed;">
 <div>
-
-<img src="/zdrum.png" style="width: 25%">
-<div style="font-size: 1.5em"><b>ZDRUM</b> Certificate of Excellence</div>
-<div>is hereby granted to</div>
-<div id="name" style="font-size: 2em; font-weight: bold; margin: 40px 0"></div>
-<div>for using and applying</div>
-<div>healthy, common logic</div>
-<div style="margin-top: 40px;">Issued by <i>Oblac</i>,<br>on <span id="date"></span></div>
-
+	<img src="/zdrum.png" style="width: 25%">
+	<div style="font-size: 1.5em"><b>ZDRUM</b><br>Certificate of Excellence</div>
+	<div>is hereby granted to</div>
+	<div id="name" style="font-size: 2em; font-weight: bold; margin: 1em 0"></div>
+	<div>for using and applying</div>
+	<div>healthy, common logic</div>
+	<div style="margin-top: 1em;">Issued by <i>Oblac</i>,<br>on <span id="date"></span></div>
 </div>
 </div>
 
@@ -118,11 +116,9 @@
 
 {% endblock %}
 {% block script %}
-<script type="text/javascript" src="/js/foo.js"></script>
 <script>
 function makeCertificate() {
 	var inputName = document.getElementById("nameinput");
-	console.log(inputName.value);
 	document.getElementById("input").style.display = "none";
 	document.getElementById("certificate").style.display = "block";
 	document.getElementById("name").innerHTML = inputName.value;

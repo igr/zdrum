@@ -76,3 +76,12 @@ a {
 }
 
 @import "nav";
+
+#cert {
+  font-size: 2.4rem;
+}
+@media screen and (max-width: 1000px) {
+  #cert {
+    font-size: 3vw;
+  }
+}
