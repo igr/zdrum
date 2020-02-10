@@ -6,10 +6,28 @@
 <h1>ZDRUM</h1>
 <h3>MANIFEST</h3>
 
-<h2>1)&nbsp; Koristi zdrav razum.</h2>
+<h2 id="zdrum">1)&nbsp;Koristi zdrav razum.</h2>
+<div id="lang">
+    {% for item in ['RS', 'EN', 'FR'] %}
+        <a href="#" onclick="langMe(this); return false;">{{item}}</a>
+    {% endfor %}
+</div>
 
 <a href="/certificate" style="font-size: 2em;">Get certified NOW!</a>
 
 {% endblock %}
 {% block script %}
+<script>
+const m = {
+  EN: "Use common sense.",
+  RS: "Koristi zdrav razum.",
+  FR: "Utilisez bon sens."
+};
+function langMe(e) {
+    var msg = m[e.innerHTML];
+    if (msg !== undefined) {
+        document.getElementById('zdrum').innerHTML = '1) ' + msg;
+    }
+}
+</script>
 {% endblock %}

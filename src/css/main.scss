@@ -37,7 +37,12 @@ h2 {
   margin: 0;
   font-family: $font2;
   font-size: 12vw;
-  margin-bottom: 1em;
+}
+#lang {
+  margin: 20px 0 10em 0;
+  a {
+    padding: 4px 2px 2px;
+  }
 }
 h3 {
   font-family: $font2;
