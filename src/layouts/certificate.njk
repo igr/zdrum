@@ -127,6 +127,7 @@ function makeCertificate() {
 	document.getElementById("certificate").style.display = "block";
 	document.getElementById("name").innerHTML = inputName.value;
 	document.getElementById("date").innerHTML = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+	document.getElementById("menuToggle").style.display = "none";
 }
 </script>
 {% endblock %}
