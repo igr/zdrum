@@ -13,7 +13,7 @@
     {% endfor %}
 </div>
 
-<a href="/certificate" style="font-size: 2em;">Get certified NOW!</a>
+<a id="action" href="/certificate" style="font-size: 2em;">Get certified NOW!</a>
 
 {% endblock %}
 {% block script %}
@@ -28,6 +28,10 @@ function langMe(e) {
     if (msg !== undefined) {
         document.getElementById('zdrum').innerHTML = '1) ' + msg;
     }
+}
+if (window.location.href.indexOf("{{site.support}}") > -1) {
+    document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
+    document.getElementById("action").href="/certificate?{{site.support}}"
 }
 </script>
 {% endblock %}

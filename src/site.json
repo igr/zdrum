@@ -1,4 +1,6 @@
 {
-  "name": "zdrum",
-  "baseURL" : "https://zdrum.work/"
+  "name": "ZDRUM",
+  "baseURL" : "https://zdrum.work/",
+  "altColor" : "#6ae8e8",
+  "support" : "pro"
 }

@@ -129,5 +129,9 @@ function makeCertificate() {
 	document.getElementById("date").innerHTML = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 	document.getElementById("menuToggle").style.display = "none";
 }
+if (window.location.href.indexOf("{{site.support}}") > -1) {
+    document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
+    document.body.style.backgroundColor = "{{site.altColor}}";
+}
 </script>
 {% endblock %}

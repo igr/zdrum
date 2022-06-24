@@ -1,4 +1,4 @@
-const { Spig, SpigSite } = require('spignite');
+const { Spig } = require('spignite');
 
 Spig.hello();
 
@@ -6,7 +6,6 @@ Spig.hello();
 
 Spig
   .on('/**/*.{md,njk}')
-  .watchSite()
 
   ._('PAGES')
   .pageMeta()
