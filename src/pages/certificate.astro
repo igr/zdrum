@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Cert from "../components/Certificate.astro"
+---
+
+<BaseLayout>
+    <div id="input" style="padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; width:100%; height: 100%; position: fixed; right: 0; font-size: 5vw;">
+        <div>
+            <div style="margin-bottom: 40px;">
+                Name: <input type="text" id="nameinput"
+                             style="border:0; border-bottom: 2px solid #000000; background-color: #ff8ba8; text-align: center">
+            </div>
+            <div style="margin-bottom: 40px">
+                Do you promise to use<br><b>common</b> and only <b>common</b> sense?
+            </div>
+            <a href="#" onclick="makeCertificate(); return false;" title="Yes, I do!">Yes</a> / <a href="/">No</a>
+        </div>
+    </div>
+    <div id="certificate" style="display: none">
+        <div id="cert" style="padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;">
+            <div>
+                <img src="/zdrum.png" style="width: 25%">
+                <div style="font-size: 1.5em"><b>ZDRUM</b><br>Certificate of Excellence</div>
+                <div>is hereby granted to</div>
+                <div id="name" style="font-size: 2em; font-weight: bold; margin: 1em 0"></div>
+                <div>for using and applying</div>
+                <div>healthy, common logic</div>
+                <div style="margin-top: 1em;">Issued by <i>Oblac</i>,<br>on <span id="date"></span></div>
+            </div>
+        </div>
+        <Cert/>
+    </div>
+</BaseLayout>
+
+<script is:inline>
+
+    function makeCertificate() {
+        const inputName = document.getElementById("nameinput");
+        document.getElementById("input").style.display = "none";
+        document.getElementById("certificate").style.display = "block";
+        document.getElementById("name").innerHTML = inputName.value;
+        document.getElementById("date").innerHTML = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        document.getElementById("menuToggle").style.display = "none";
+    }
+
+    if (window.location.href.indexOf("{{site.support}}") > -1) {
+        document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
+        document.body.style.backgroundColor = "{{site.altColor}}";
+    }
+</script>

@@ -1,3 +1,6 @@
+---
+import '../styles/main.scss';
+---
 <!doctype html>
 <html>
 <head>
@@ -32,14 +35,11 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-
-    <link rel='stylesheet' href='/css/main.css' type='text/css' media='all' />    
 </head>
 <body>
-	{% include "nav.njk" %}
+	<!--{% include "nav.njk" %}-->
 	<main>
-    {% block main %}{% endblock %}
+    <slot/>
 	</main>
-{% block script %}{% endblock %}
 </body>
 </html>

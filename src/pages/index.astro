@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+const languages = ['RS', 'EN', 'FR'];
+---
+
+<BaseLayout>
+	<img src="/zdrum.png">
+
+	<h1>ZDRUM</h1>
+	<h3>MANIFEST</h3>
+
+	<h2 id="zdrum">1.&nbsp;Use common sense.</h2>
+
+	<div id="lang">
+		{languages.map(item => (
+			<a href="#" onclick="langMe(this); return false;">{item}</a>
+		))}
+	</div>
+
+	<a id="action" href="/certificate" style="font-size: 2em;">Get certified NOW!</a>
+</BaseLayout>
+
+<script is:inline>
+	const m = {
+		EN: "Use common sense.",
+		RS: "Koristi zdrav razum.",
+		FR: "Utilisez bon sens."
+	};
+	function langMe(e) {
+		const msg = m[e.innerHTML];
+		if (msg !== undefined) {
+			document.getElementById('zdrum').innerHTML = '1.&nbsp;' + msg;
+		}
+	}
+	if (window.location.href.indexOf("{{site.support}}") > -1) {
+		document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
+		document.getElementById("action").href="/certificate?{{site.support}}"
+	}
+</script>
