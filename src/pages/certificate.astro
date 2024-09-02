@@ -54,7 +54,6 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
     }
     #c {
         font-size: 1.5em;
-        font-style: italic;
     }
     #input {
         padding: 0;
@@ -82,18 +81,19 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
     }
     #download {
         position: absolute;
+        z-index: 100;
+        left: 0;
         bottom: 0;
-        color: #000;
+        color: #fff;
         width: 100%;
         text-align: center;
         padding: 6px 0 0 0;
-        background-color: red;
+        background-color: #232323;
         display: none;
     }
 </style>
 
-<script src="../scripts/html2canvas.min.js" ></script>
-
+<script src="/html2canvas.min.js" is:inline></script>
 
 <script is:inline>
     function makeCertificate() {
@@ -107,7 +107,6 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
             month: 'long',
             day: 'numeric'
         });
-        //document.getElementById("menuToggle").style.display = "none";
         document.getElementById("download").style.display = "block";
     }
     document.addEventListener("DOMContentLoaded", function () {
