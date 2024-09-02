@@ -1,18 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import Cert from "../components/Certificate.astro"
+import Cert from "../components/CertificateSvg.astro"
+import ZdrumSvg from "../components/ZdrumSvg.astro";
 ---
 
 <BaseLayout>
-    <div id="input" style="padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center; width:100%; height: 100%; position: fixed; right: 0; font-size: 5vw;">
+    <div id="input">
         <div>
             <div style="margin-bottom: 40px;">
-                Name: <input type="text" id="nameinput"
-                             style="border:0; border-bottom: 2px solid #000000; background-color: #ff8ba8; text-align: center">
+                Name: <input type="text" id="nameinput">
             </div>
             <div style="margin-bottom: 40px">
                 Do you promise to use<br><b>common</b> and only <b>common</b> sense?
@@ -21,21 +17,13 @@ import Cert from "../components/Certificate.astro"
         </div>
     </div>
     <div id="certificate" style="display: none">
-        <div id="cert" style="padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  right: 0;">
+        <div id="cert">
             <div>
-                <img src="/zdrum.png" style="width: 25%">
-                <div style="font-size: 1.5em"><b>ZDRUM</b><br>Certificate of Excellence</div>
+                <div class="image25p"><ZdrumSvg/></div>
+                <div id="z"><b>ZDRUM</b></div>
+                <div id="c">Certificate&nbsp;of&nbsp;Excellence</div>
                 <div>is hereby granted to</div>
-                <div id="name" style="font-size: 2em; font-weight: bold; margin: 1em 0"></div>
+                <div id="name"></div>
                 <div>for using and applying</div>
                 <div>healthy, common logic</div>
                 <div style="margin-top: 1em;">Issued by <i>Oblac</i>,<br>on <span id="date"></span></div>
@@ -43,10 +31,71 @@ import Cert from "../components/Certificate.astro"
         </div>
         <Cert/>
     </div>
+    <a href="#" id="download">DOWNLOAD CERTIFICATE</a>
 </BaseLayout>
 
-<script is:inline>
+<style>
+    #cert {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        letter-spacing: -2px;
+    }
+    #z {
+        font-size: 2em;
+        font-weight: bold;
+    }
+    #c {
+        font-size: 1.5em;
+        font-style: italic;
+    }
+    #input {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        font-size: 5vw;
+    }
+    #nameinput {
+        border:0;
+        border-bottom: 2px solid #000000;
+        background-color: #ff8ba8;
+        text-align: center;
+        font-weight: bold;
+    }
+    #name {
+        font-size: 2em;
+        font-weight: bold;
+        margin: 1em 0;
+    }
+    #download {
+        position: absolute;
+        bottom: 0;
+        color: #000;
+        width: 100%;
+        text-align: center;
+        padding: 6px 0 0 0;
+        background-color: red;
+        display: none;
+    }
+</style>
 
+<script src="../scripts/html2canvas.min.js" ></script>
+
+
+<script is:inline>
     function makeCertificate() {
         const inputName = document.getElementById("nameinput");
         document.getElementById("input").style.display = "none";
@@ -58,11 +107,23 @@ import Cert from "../components/Certificate.astro"
             month: 'long',
             day: 'numeric'
         });
-        document.getElementById("menuToggle").style.display = "none";
+        //document.getElementById("menuToggle").style.display = "none";
+        document.getElementById("download").style.display = "block";
     }
+    document.addEventListener("DOMContentLoaded", function () {
+        const dl = document.getElementById("download");
+        dl.addEventListener("click", function () {
+            dl.style.display = "none";
+            html2canvas(document.body, {
+                foreignObjectRendering: true,
+                allowTaint: true
+            }).then(canvas => {
+                var a = document.createElement('a');
+                a.href = canvas.toDataURL("image/png");
+                a.download = 'zdrum-certificate.png';
+                a.click();
+            });
+        });
+    });
 
-    if (window.location.href.indexOf("{{site.support}}") > -1) {
-        document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
-        document.body.style.backgroundColor = "{{site.altColor}}";
-    }
 </script>

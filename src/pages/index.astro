@@ -1,21 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-const languages = ['RS', 'EN', 'FR'];
+import ZdrumSvg from "../components/ZdrumSvg.astro";
+const languages = [
+	'EN', 'RS', 'FR', 'IT', 'DE', 'ES', 'PT', 'PL', 'RO', 'HU', 'GR', 'SE', 'NO',
+	'NL', 'DA', 'EE', 'LT', 'LV', 'SK', 'SL', 'CZ', 'HR', 'ME', 'ZH'];
 ---
 
 <BaseLayout>
-	<img src="/zdrum.png">
+	<div class="image250"><ZdrumSvg/></div>
 
 	<h1>ZDRUM</h1>
-	<h3>MANIFEST</h3>
+	<h3>MANIFESTO</h3>
 
-	<h2 id="zdrum">1.&nbsp;Use common sense.</h2>
+	<p>
+		Imagine a blueprint that fine-tunes your approach to life, merging precision with practicality.
+		The ultimate manifest is your go-to guide for cutting through complexity and maximizing your potential.
+		It’s filled with actionable strategies and insights, designed to elevate your decision-making and streamline your day-to-day.
+		Whether you’re navigating challenges or seizing opportunities, this is the tool you need to stay ahead and thrive in every aspect of life.
+	</p>
+
+	<hr>
 
 	<div id="lang">
 		{languages.map(item => (
-			<a href="#" onclick="langMe(this); return false;">{item}</a>
+			<span><a href="#" onclick="langMe(this); return false;">{item}</a> </span>
 		))}
 	</div>
+
+	<h2 id="zdrum">1.&nbsp;Use common sense.</h2>
 
 	<a id="action" href="/certificate" style="font-size: 2em;">Get certified NOW!</a>
 </BaseLayout>
@@ -24,16 +36,33 @@ const languages = ['RS', 'EN', 'FR'];
 	const m = {
 		EN: "Use common sense.",
 		RS: "Koristi zdrav razum.",
-		FR: "Utilisez bon sens."
+		FR: "Utilisez votre bon sens.",
+		IT: "Usa il buon senso.",
+		DE: "Benutze deinen gesunden Menschenverstand.",
+		ES: "Usa el sentido común.",
+		PT: "Use o bom senso.",
+		PL: "Użyj zdrowego rozsądku.",
+		RO: "Folosește-ți simțul comun.",
+		HU: "Használja az egészséges észjárását.",
+		GR: "Χρησιμοποιήστε τον κοινό λόγο.",
+		SE: "Använd sunt förnuft.",
+		NO: "Bruk sunn fornuft.",
+		NL: "Gebruik je gezonde verstand.",
+		DA: "Brug almindelig sund fornuft.",
+		EE: "Kasutage tervet mõistust.",
+		LT: "Naudokite sveiką protą.",
+		LV: "Izmantojiet veselo saprātu.",
+		SK: "Použite zdravý rozum.",
+		SL: "Uporabite zdrav razum.",
+		CZ: "Použijte zdravý rozum.",
+		HR: "Koristite zdrav razum.",
+		ME: "Koristite zdrav razum.",
+		ZH: "使用常识。",
 	};
 	function langMe(e) {
 		const msg = m[e.innerHTML];
 		if (msg !== undefined) {
 			document.getElementById('zdrum').innerHTML = '1.&nbsp;' + msg;
 		}
-	}
-	if (window.location.href.indexOf("{{site.support}}") > -1) {
-		document.getElementsByTagName("main")[0].style.backgroundColor = "{{site.altColor}}";
-		document.getElementById("action").href="/certificate?{{site.support}}"
 	}
 </script>
