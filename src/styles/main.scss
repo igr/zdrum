@@ -35,7 +35,7 @@ h2 {
   margin: 1em 0;
 }
 p {
-  //font-size: 2vw;
+  font-size: 1.5vw;
   padding: 0 20%;
 }
 #lang {
@@ -95,9 +95,10 @@ a {
     font-size: 3vmin;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   p {
     padding: 0 10%;
+    font-size: 3vmin;
   }
 }
 
