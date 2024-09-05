@@ -31,7 +31,7 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
         </div>
         <Cert/>
     </div>
-    <a href="#" id="download">DOWNLOAD CERTIFICATE</a>
+    <div id="footer"><a href="#" id="download">DOWNLOAD CERTIFICATE</a></div>
 </BaseLayout>
 
 <style>
@@ -79,18 +79,24 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
         font-weight: bold;
         margin: 1em 0;
     }
-    #download {
+    #footer {
         position: absolute;
         z-index: 100;
         left: 0;
         bottom: 0;
-        color: #fff;
         width: 100%;
         text-align: center;
         padding: 6px 0 0 0;
-        background-color: #232323;
         display: none;
+    }
+    #download {
+        color: #fff;
+        background-color: #232323;
         border-radius: 0;
+        &:hover {
+            color: #ff8ba8;
+            background-color: #fff;
+        }
     }
 </style>
 
@@ -108,7 +114,7 @@ import ZdrumSvg from "../components/ZdrumSvg.astro";
             month: 'long',
             day: 'numeric'
         });
-        document.getElementById("download").style.display = "block";
+        document.getElementById("footer").style.display = "block";
     }
     document.addEventListener("DOMContentLoaded", function () {
         const dl = document.getElementById("download");
